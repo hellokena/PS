@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
     tmp_pd = pd.read_csv(csv_dir + '/' + i, index_col = 0) # 한 주의 DTM 파일을 읽어옴
     tmp_pd.pop(tmp_pd.columns[0])
 
-    # 사이킷런을 이용하여 TFIDF 생성 https://wikidocs.net/31698
+    # 사이킷런을 이용하여 TFIDF 생성
     tfidf = TfidfTransformer().fit_transform(tmp_pd)
     tfidf_array = tfidf.toarray()
     tfidf_data_frame = pd.DataFrame(tfidf_array, columns = tmp_pd.columns)
